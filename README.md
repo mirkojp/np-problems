@@ -8,6 +8,13 @@ Este proyecto contiene dos implementaciones en Python para abordar el problema d
 
 Este script implementa una heurística voraz secuencial (Greedy Coloring) para obtener una aproximación del número cromático utilizando listas de adyacencia con una complejidad temporal de $O(\vert{}V\vert{} + \vert{}E\vert{})$ y espacial de $O(\vert{}V\vert{})$.
 
+* Implementa una heurística voraz secuencial (Greedy Coloring) para obtener una aproximación del número cromático.
+* Utiliza una representación del grafo mediante listas de adyacencia.
+* El algoritmo tiene una complejidad temporal de $O(\vert{}V\vert{} + \vert{}E\vert{})$.
+* Posee una complejidad espacial auxiliar de $O(\vert{}V\vert{})$.
+* Retorna la cantidad total de colores utilizados y la lista de asignación por vértice.
+
+
 **Funciones:**
 *   `generar_grafo_lista_adyacencia(n, p, seed)`: Genera un grafo aleatorio $G(n, p)$ y lo representa mediante listas de adyacencia.
 *   `greedy_coloring_lista(n, adj_list, p, seed)`: Ejecuta el algoritmo voraz. Recorre secuencialmente cada vértice y le asigna el primer color libre (el menor entero disponible) que no esté ocupado por ninguno de sus vecinos. Retorna la cantidad total de colores ($k$) y la lista de asignación por vértice.
@@ -15,6 +22,12 @@ Este script implementa una heurística voraz secuencial (Greedy Coloring) para o
 ### `cnumber-bf.py`
 
 Este script calcula de forma exacta el número cromático óptimo ($\chi(G)$) utilizando fuerza bruta exhaustiva sobre una representación en matriz de adyacencia de tamaño $n \times n$.
+
+* Calcula de forma exacta el número cromático óptimo ($\chi(G)$) utilizando fuerza bruta exhaustiva.
+* Representa el grafo mediante una matriz de adyacencia de tamaño $n \times n$.
+* Emplea un producto cartesiano para iterar sobre todas las asignaciones de colores posibles
+* La validación de cada coloración propuesta verifica en $O(n^2)$ que ningún par de vértices adyacentes comparta el mismo color.
+* Retorna el número cromático óptimo y una tupla con los colores asignados a cada vértice.
 
 **Funciones:**
 *   `generar_grafo_aleatorio(n, p, seed)`: Genera un grafo no dirigido simple $G(n, p)$ y devuelve su matriz de adyacencia.
@@ -24,6 +37,8 @@ Este script calcula de forma exacta el número cromático óptimo ($\chi(G)$) ut
 ## Ejecución
 
 Ambos scripts funcionan con la biblioteca estándar de Python y pueden ser ejecutados de forma independiente.
+Modificando la variable n se puede modificar la cantidad de vértices de ambos archivos.
+La generación de los grafos esta dada por el Modelo Erdös–Rényi, con p=0.5 para grafos aleatorios y se utiliza una semilla para reproducibilidad
 
 ```bash
 python cnumber-heuristic.py
